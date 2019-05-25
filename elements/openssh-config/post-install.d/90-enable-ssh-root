@@ -1,0 +1,28 @@
+#!/bin/bash
+
+if [ ${DIB_DEBUG_TRACE:-0} -gt 0 ]; then
+    set -x
+fi
+set -eu
+set -o pipefail
+
+if [ -n "${DIB_CLOUD_INIT_ENABLE_ROOT:-}" ]; then
+    if [ -f "/etc/cloud/cloud.cfg" ]; then
+        if [ -z "$(cat /etc/cloud/cloud.cfg | grep disable_root)" ]; then
+            echo "disable_root not exist. append to EOF"
+            sudo sh -c 'echo "disable_root: 1" >> /etc/cloud/cloud.cfg'
+        else
+            echo "diable_root exist. make sure disable_root disabled"
+            sed -i -e 's/disable_root:.*/disable_root: 0/' /etc/cloud/cloud.cfg
+        fi
+    fi
+    if [ -f "/etc/ssh/sshd_config" ]; then
+        if $(grep -q ^PermitRootLogin /etc/ssh/sshd_config); then
+            echo "Updating PermitRootLogin to yes in sshd_config"
+            sed -i -e 's/^PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config
+        else
+            echo "Adding 'PermitRootLogin yes' to sshd_config"
+            echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+        fi
+    fi
+fi

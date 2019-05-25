@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ ${DIB_DEBUG_TRACE:-0} -gt 0 ]; then
+    set -x
+fi
+
+set -eu
+set -o pipefail
+
+SSHD_CONFIG=/etc/ssh/sshd_config
+
+if ! grep -i '^UseDNS.*' ${SSHD_CONFIG}>/dev/null 2>&1; then
+    echo 'UseDNS no' >> ${SSHD_CONFIG}
+else
+    sed -i 's/UseDNS.*/UseDNS no/ig' /etc/ssh/sshd_config
+fi

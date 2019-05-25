@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [ ${DIB_DEBUG_TRACE:-0} -gt 0 ]; then
+    set -x
+fi
+set -eu
+set -o pipefail
+
+if [[ ${DISTRO_NAME} =~ "centos" ]]; then
+    if [[ -f /usr/bin/systemctl ]]; then
+        systemctl enable qemu-guest-agent.service
+    else
+        chkconfig qemu-ga on
+    fi
+elif [[ ${DISTRO_NAME} =~ "ubuntu" ]]; then
+    if [ "${DIB_RELEASE}" = "trusty" ]; then
+        update-rc.d qemu-guest-agent defaults
+    elif [[ "${DIB_RELEASE}" == "xenial" ]]; then
+        systemctl enable qemu-guest-agent.service
+    else
+        echo "qemu-guest-agent element does not support ${DIB_RELEASE}"
+    fi
+fi

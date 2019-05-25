@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ ${DIB_DEBUG_TRACE:-0} -gt 0 ]; then
+    set -x
+fi
+set -eu
+set -o pipefail
+
+echo "Configure timezone to Asia/Shanghai"
+
+if [[ -f /etc/localtime ]]; then
+    rm -f /etc/localtime
+fi
+ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime

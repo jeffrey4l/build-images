@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ ${DIB_DEBUG_TRACE:-0} -gt 0 ]; then
+    set -x
+fi
+set -eu
+set -o pipefail
+
+if [ -f "/etc/cloud/cloud.cfg" ]; then
+    if [ -z "$(cat /etc/cloud/cloud.cfg | grep update_hostname)" ]; then
+        echo 'Removing update_hostname.'
+        sed -i -e 's/^ - update_hostname.*$//' /etc/cloud/cloud.cfg 
+    else
+        echo 'update_hostname do not exist. nothing to do'
+    fi
+fi
