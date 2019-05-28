@@ -25,6 +25,7 @@ disk-image-create -a amd64 -o centos7-amd64 -t qcow2 "$@" \
     centos7 \
     cloud-init \
     cloud-init-datasources \
+    custom-packages \
     devuser \
     dhcp-all-interfaces \
     disable-selinux \
