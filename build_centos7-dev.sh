@@ -34,4 +34,5 @@ disk-image-create -a amd64 -o centos7-amd64 -t qcow2 "$@" \
     openssh-config \
     qemu-guest-agent \
     timezone \
+    kernel-rt \
     vm
