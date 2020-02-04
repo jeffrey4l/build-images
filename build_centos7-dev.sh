@@ -20,7 +20,7 @@ export DIB_DEV_USER_PWDLESS_SUDO=1
 
 export FS_TYPE=xfs
 
-disk-image-create -a amd64 -o centos7-amd64 -t qcow2 "$@" \
+disk-image-create -a amd64 -o centos7-amd64-dev -t qcow2 "$@" \
     auto-fstrim \
     centos7 \
     cloud-init \
