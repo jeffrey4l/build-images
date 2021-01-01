@@ -1,5 +1,5 @@
 #!/bin/bash
-export DIB_IMAGE_SIZE=2
+export DIB_IMAGE_SIZE=3
 
 export ELEMENTS_PATH=elements
 #export TMP_BUILD_DIR=/data/dib
@@ -14,7 +14,7 @@ export DIB_EPEL_MIRROR=http://mirrors.aliyun.com/epel
 export DIB_CLOUD_INIT_ALLOW_SSH_PWAUTH=1
 export DIB_CLOUD_INIT_ENABLE_ROOT=1
 
-export DIB_DEV_USER_USERNAME=dev
+export DIB_DEV_USER_USERNAME=admin
 export DIB_DEV_USER_PASSWORD=pass
 export DIB_DEV_USER_PWDLESS_SUDO=1
 

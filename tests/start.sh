@@ -51,7 +51,7 @@ config_aliyun_cli(){
 
 oss_copy(){
     filename=$1
-    aliyun oss cp $PROJECT_ROOT/$filename oss://xcodest/image/$filename
+    aliyun oss cp --force $PROJECT_ROOT/$filename oss://xcodest/image/$filename
 }
 
 build_ironic_centos7(){
