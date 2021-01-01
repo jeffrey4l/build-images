@@ -8,13 +8,50 @@ set -o pipefail
 
 if [[ ${DISTRO_NAME} =~ "centos" ]]; then
     yum install -y \
+        centos-release-openstack-train \
+        centos-release-ansible-29 \
+        centos-release-qemu-ev
+    yum install -y \
+        ansible
+    yum install -y \
+        mariadb
+    yum -y install \
+        atop \
+        bcc \
+        bcc-tools \
+        blktrace \
+        dstat \
+        ethtool \
+        htop \
+        iotop \
+        iproute \
+        lldpad \
         lsof \
-        net-tools \
+        ltrace \
+        numactl \
+        openvswitch \
         perf \
+        procps-ng \
         strace \
         sysstat \
         tcpdump \
-        watchdog
+        tiptop \
+        tmux
+    # performance benchmark tools
+    yum -y install \
+        httpd-tools \
+        fio \
+        hping3 \
+        sysbench \
+        traceroute \
+        mtr \
+        hdparm \
+        smartmontools
+    # Performance tunning tools
+    yum -y install \
+        systemtap-client \
+        kpatch
+
 elif [[ ${DISTRO_NAME} =~ "ubuntu" ]]; then
     apt-get install -y \
         lsof \
@@ -23,5 +60,4 @@ elif [[ ${DISTRO_NAME} =~ "ubuntu" ]]; then
         sysstat \
         tcpdump \
         watchdog
-
 fi

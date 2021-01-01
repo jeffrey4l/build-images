@@ -30,7 +30,7 @@ prepare_environment(){
         util-linux \
         uuid-runtime \
         yum-utils
-    pip install -U diskimage-builder
+    pip install -U 'diskimage-builder<2.39'
 }
 
 download_aliyun_cli(){
