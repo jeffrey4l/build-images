@@ -14,8 +14,8 @@ export DIB_EPEL_MIRROR=http://mirrors.aliyun.com/epel
 export DIB_CLOUD_INIT_ALLOW_SSH_PWAUTH=1
 export DIB_CLOUD_INIT_ENABLE_ROOT=1
 
-export DIB_DEV_USER_USERNAME=root
-export DIB_DEV_USER_PASSWORD=password
+export DIB_DEV_USER_USERNAME=dev
+export DIB_DEV_USER_PASSWORD=pass
 export DIB_DEV_USER_PWDLESS_SUDO=1
 
 export FS_TYPE=xfs
