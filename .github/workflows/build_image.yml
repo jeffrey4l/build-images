@@ -6,7 +6,7 @@ on:
 
 jobs:
   build_ironic_centos7:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v1
       - name: Run ansible deployment playbooks
@@ -17,7 +17,7 @@ jobs:
           ACCESS_KEY_SECRET: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
 
   build_centos7:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v1
       - name: Run ansible deployment playbooks
@@ -28,7 +28,7 @@ jobs:
           ACCESS_KEY_SECRET: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
 
   build_centos7-dev:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v1
       - name: Run ansible deployment playbooks
@@ -39,7 +39,7 @@ jobs:
           ACCESS_KEY_SECRET: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
 
   build_ubuntu_bionic:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v1
       - name: Run ansible deployment playbooks
