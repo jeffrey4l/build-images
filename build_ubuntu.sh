@@ -17,7 +17,9 @@ export DIB_IMAGE_SIZE=2
 export ELEMENTS_PATH=elements
 
 
-export DIB_RELEASE=bionic
+# 18.04 bionic
+# 20.04 focal
+export DIB_RELEASE=${DIB_RELEASE:-bionic}
 
 export DIB_CLOUD_IMAGES=http://mirrors.ustc.edu.cn/ubuntu-cloud-images/$DIB_RELEASE/current/
 #export DIB_DISTRIBUTION_MIRROR=http://mirrors.ustc.edu.cn/ubuntu-cloud-images
@@ -31,7 +33,7 @@ export DIB_CLOUD_INIT_ENABLE_ROOT=1
 # * dhcp-all-interface not work.  seems cloud-init is doing more in interface management
 # * mirror url do not work. cloud-init override it, need change cloud.cfg file
 
-disk-image-create -a $_ARCH -o ubuntu-bionic-$_ARCH "$@" \
+disk-image-create -a $_ARCH -o ubuntu-${DIB_RELEASE} "$@" \
     ubuntu \
     cloud-init \
     cloud-init-datasources \

@@ -77,9 +77,9 @@ build_centos7-dev(){
     oss_copy centos7-amd64-dev.qcow2
 }
 
-build_ubuntu_bionic(){
-  bash $PROJECT_ROOT/build_bionic
-  oss_copy ubuntu-bionic.qcow2
+build_ubuntu(){
+  bash $PROJECT_ROOT/build_ubuntu.sh
+  oss_copy ubuntu-${DIB_RELEASE}-amd64.qcow2
 }
 
 prepare_environment

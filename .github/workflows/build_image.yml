@@ -38,13 +38,13 @@ jobs:
           ACCESS_KEY_ID: ${{ secrets.OSS_ACCESS_KEY_ID }}
           ACCESS_KEY_SECRET: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
 
-  build_ubuntu_bionic:
+  build_ubuntu_2004:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v1
       - name: Run ansible deployment playbooks
         run: |
-          sudo -E bash -x tests/start.sh build_ubuntu_bionic
+          sudo -E bash -x tests/start.sh build_ubuntu
         env:
           ACCESS_KEY_ID: ${{ secrets.OSS_ACCESS_KEY_ID }}
           ACCESS_KEY_SECRET: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
