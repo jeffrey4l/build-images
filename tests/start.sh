@@ -77,6 +77,11 @@ build_centos7-dev(){
     oss_copy centos7-amd64-dev.qcow2
 }
 
+build_ubuntu_bionic(){
+  bash $PROJECT_ROOT/build_bionic
+  oss_copy ubuntu-bionic.qcow2
+}
+
 prepare_environment
 download_aliyun_cli
 config_aliyun_cli
