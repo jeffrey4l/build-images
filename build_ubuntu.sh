@@ -12,7 +12,7 @@ case $_ARCH in
     ;;
 esac
 
-export DIB_IMAGE_SIZE=2
+export DIB_IMAGE_SIZE=4
 
 export ELEMENTS_PATH=elements
 
