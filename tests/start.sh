@@ -1,4 +1,6 @@
-#!/bin/bash -e
+#!/bin/bash
+
+set -o errexit
 
 ME=$0
 
@@ -78,8 +80,9 @@ build_centos7-dev(){
 }
 
 build_ubuntu(){
+  export DIB_RELEASE=focal
   bash $PROJECT_ROOT/build_ubuntu.sh
-  oss_copy ubuntu-${DIB_RELEASE}-amd64.qcow2
+  oss_copy ubuntu-${DIB_RELEASE}.qcow2
 }
 
 prepare_environment
