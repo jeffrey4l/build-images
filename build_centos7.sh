@@ -27,6 +27,7 @@ disk-image-create -a amd64 -o centos7-amd64 -t qcow2 "$@" \
     vm \
     qemu-guest-agent \
     disable-update-hostname \
+    block-device-gpt \
     timezone \
     openssh-config \
     auto-fstrim

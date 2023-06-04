@@ -43,6 +43,7 @@ disk-image-create -a $_ARCH -o ubuntu-${DIB_RELEASE} "$@" \
     vm \
     qemu-guest-agent \
     disable-update-hostname \
+    block-device-gpt \
     timezone \
     openssh-config \
     auto-fstrim  $ELEMENTS

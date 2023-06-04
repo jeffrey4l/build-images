@@ -33,6 +33,7 @@ disk-image-create -a amd64 -o centos7-amd64-dev -t qcow2 "$@" \
     epel \
     openssh-config \
     qemu-guest-agent \
+    block-device-gpt \
     timezone \
     kernel-rt \
     vm
